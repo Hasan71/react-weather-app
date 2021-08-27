@@ -16,7 +16,7 @@ function App() {
     let month = months[d.getMonth()];
     let year = d.getFullYear();
 
-    return `${day} ${date} ${month} ${year}`
+    return `${day} ${date} ${month} ${year}`;
 
   }
 
@@ -32,6 +32,14 @@ function App() {
           <div className="location-box">
             <div className="location">Sherpur, Mymensinghh</div>
             <div className="date">{dateBuilder(new Date())}</div>
+          </div>
+        </div>
+        <div className="weather-box">
+          <div className="temperature">
+            25°C
+          </div>
+          <div className="weather">
+            Sunny
           </div>
         </div>
       </main>
