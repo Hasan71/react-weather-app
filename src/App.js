@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 const api = {
-  key: "a15127ab2bf64302945a819af90c8536",
+  //key: "a15127ab2bf64302945a819af90c8536",
+  key: "82f0f1878a7f99f9e8bbd3c8eb7cc375",
   base: "https://api.openweathermap.org/data/2.5"
 }
 
@@ -17,6 +18,7 @@ function App() {
       .then(result => {
          setWeather(result);
          setQuery('');
+         console.log(result);
       });
     }
   }
@@ -35,7 +37,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
       <main>
 
         <div className="search-box">
@@ -57,9 +59,9 @@ function App() {
 
               <div className="weather-box">
                 <div className="temperature">
-                  25°C
+                  {Math.round(weather.main.temp)}°c
                 </div>
-                <div className="weather">Sunny</div>
+                <div className="weather">{weather.weather[0].main}</div>
               </div>
           </div>
 
